@@ -1,4 +1,6 @@
-import groovy.json.JsonOutput
+#!/usr/bin/env groovy
+def call(String name = 'human') {
+
 def stageStatuses = [:]
 def roomFound = false
 def response=""
@@ -6,6 +8,7 @@ def room_ID=''
 def room_name=env.JOB_BASE_NAME
 def botToken = 'ZmYwNmE2Y2UtMTFmZi00ODc2LTgxMDgtNzg4NmJhNjM4YzkzMDI2MzUxOWYtNWE2_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f'
 def apiUrl = "https://api.ciscospark.com/v1/rooms"
+echo "Hello, ${name}."
 node {
     try {
         stage('BUILD') {
@@ -149,4 +152,5 @@ node {
         """
         echo "Stage Statuses: ${stageStatuses}"
     }
+}
 }
